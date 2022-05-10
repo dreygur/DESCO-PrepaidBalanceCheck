@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Register the Meter
-	regMeterInfo, err := registerMeter("13130589")
+	regMeterInfo, err := registerMeter("")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -96,7 +96,7 @@ func networkHandler(reqType, path, reqBody string) (*http.Response, error) {
 	req.Header.Add("Host", "descoapp.sslwireless.com")
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Add("Content-Length", "38")
+	req.Header.Add("Content-Length", strconv.Itoa(len(reqBody)))
 	req.Header.Add("Accept-Encoding", "gzip, deflate")
 	req.Header.Add("User-Agent", "okhttp/3.14.9")
 	req.Header.Add("Connection", "close")
